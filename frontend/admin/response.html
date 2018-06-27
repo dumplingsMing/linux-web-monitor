@@ -32,10 +32,10 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a href="index.html" class="active-menu"><i class="fa fa-dashboard"></i>服务器状态</a>
+                    <a href="index.html"><i class="fa fa-dashboard"></i>服务器状态</a>
                 </li>
                 <li>
-                    <a href="response.html"><i class="fa fa-user"></i> 响应时间</a>
+                    <a href="response.html" class="active-menu"><i class="fa fa-user"></i> 响应时间</a>
                 </li>
             </ul>
         </div>
@@ -44,59 +44,35 @@
     <div id="page-wrapper">
         <div class="header">
             <h1 class="page-header">
-                服务器状态 <small>服务器的各种基本软硬件情况</small>
+                相应时间 <small>服务器的各个接口的响应时间</small>
             </h1>
         </div>
         <div id="page-inner">
 
             <div class="row">
-                <div class="col-sm-6 col-xs-12">
+                <div class="col-sm-12 col-xs-12">
                     <div class="panel panel-default chartJs">
                         <div class="panel-heading">
                             <div class="card-title">
-                                <div class="title">CPU使用率</div>
+                                <div class="title">本机响应时间（含网络传输时间）</div>
                             </div>
                         </div>
                         <div class="panel-body">
-                            <div id="cpu-utilization-container"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xs-12">
-                    <div class="panel panel-default chartJs">
-                        <div class="panel-heading">
-                            <div class="card-title">
-                                <div class="title">内存使用情况</div>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div id="memory-utilization-container"></div>
+                            <div id="local-responsetime-container"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6 col-xs-12">
+                <div class="col-sm-12 col-xs-12">
                     <div class="panel panel-default chartJs">
                         <div class="panel-heading">
                             <div class="card-title">
-                                <div class="title">CPU平均负载</div>
+                                <div class="title">服务器响应时间（不含网络传输时间）</div>
                             </div>
                         </div>
                         <div class="panel-body">
-                            <div id="cpu-average-container"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xs-12">
-                    <div class="panel panel-default chartJs">
-                        <div class="panel-heading">
-                            <div class="card-title">
-                                <div class="title">上传下载速度</div>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div id="transfer-rate-container"></div>
+                            <div id="server-responsetime-container"></div>
                         </div>
                     </div>
                 </div>
@@ -120,7 +96,7 @@
 
 <!-- Custom Js -->
 <script src="assets/js/custom-scripts.js"></script>
-<script src="assets/js/server-state-charts.js"></script>
+<script src="assets/js/response-time-charts.js"></script>
 
 </body>
 </html>
