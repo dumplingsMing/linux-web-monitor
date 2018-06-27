@@ -3,7 +3,7 @@ const THRESHOLD = 20;
 
 let localResponseChart;
 const localResponseData = [];
-let newestLocalResponseTime = 0;
+let newestLocalResponseTime = {date: new Date(), time: 0};
 
 let serverResponseChart;
 let serverResponseData = [];
@@ -25,7 +25,7 @@ function draw() {
                 text: 'Response Time (ms)'
             },
             min: 0,
-            max: 100
+            max: 200
         },
         legend: {
             enabled: false
@@ -58,7 +58,7 @@ function draw() {
                 text: 'Response Time (ms)'
             },
             min: 0,
-            max: 100
+            max: 200
         },
         legend: {
             enabled: false
@@ -88,7 +88,7 @@ function ping(){
     var time1 = date.getTime();
     $.post(url,function(res,status){
         var time2 = new Date().getTime();
-        newestLocalResponseTime = {date: date, time: time2 - time1};
+        newestLocalResponseTime = {date: date.toLocaleDateString(), time: time2 - time1};
     }).fail(function(){
         // stop pinging and send bug-report email
         alert("the server is down!");
@@ -101,7 +101,9 @@ function updateData() {
     $.getJSON(url,function(data){
        serverResponseData  = data;
     });
+    serverResponseChart.series[0].setData([]);
     serverResponseChart.series[0].setData(serverResponseData);
+    console.log(newestLocalResponseTime);
     updateLineSeries(localResponseChart.series[0], localResponseData, newestLocalResponseTime.date, newestLocalResponseTime.time);
 }
 
