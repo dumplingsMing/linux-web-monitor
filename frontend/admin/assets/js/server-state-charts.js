@@ -1,4 +1,4 @@
-const stateURL = "http://192.168.12.84:8123/server/?module=all";
+const stateURL = "http://218.193.183.164:8123/server/?module=all";
 const THRESHOLD = 20;
 
 let cpuUtilizationChart;
